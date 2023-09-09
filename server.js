@@ -13,11 +13,17 @@ const PORT = process.env.PORT
 const PASSWORD = process.env.PASSWORD
 app.use(cors())
 
-const users = []
+// const users = []
 
-app.get('/users', (req, res) => {
-    return res.json(users)
+// app.get('/users', (req, res) => {
+//     return res.json(users)
+// })
+app.get('/:id', async (req, res) => {
+    const id = req.params.id
+    const users = await User.findOne()
+    res.json(users)
 })
+ 
 
 app.get('/find', async (req, res) => {
     const users = await User.find()
@@ -30,6 +36,8 @@ app.post('/users', async (req, res) => {
     return res.json(newUser)
 
 })
+
+
 
 // app.post('/post', (req, res) => {
 //     const { nome, age, nickName } = req.body
