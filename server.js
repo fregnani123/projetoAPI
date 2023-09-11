@@ -41,10 +41,7 @@ app.get('find/:id', async (req, res) => {
  }
 })
  
-app.get('/find', async (req, res) => {
-    const users = await User.find()
-    return res.json(users)
-})
+
 
 app.post('/users', async (req, res) => {
     const user = req.body
