@@ -19,6 +19,16 @@ app.use(cors())
 //     return res.json(users)
 // })
 
+app.delete('/deleta/:id',async (req, res) => {
+    const id = req.params.id
+    try {
+        const users = await User.deleteOne({ _id: id })
+        res.json(users)
+
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 app.get('find/:id', async (req, res) => {
     const id = req.params.id
