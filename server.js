@@ -18,10 +18,12 @@ app.use(cors())
 // app.get('/users', (req, res) => {
 //     return res.json(users)
 // })
-app.get('/:id', async (req, res) => {
+
+
+app.get('find/:id', async (req, res) => {
     const id = req.params.id
     try {
-        const users = await User.findOne({ _id: id })
+        const users = await User.findOne({_id: id })
         res.json(users)
 
     } catch (error) {
