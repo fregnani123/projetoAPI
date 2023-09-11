@@ -20,11 +20,15 @@ app.use(cors())
 // })
 app.get('/:id', async (req, res) => {
     const id = req.params.id
-    const users = await User.findOne()
-    res.json(users)
+    try {
+        const users = await User.findOne({ _id: id })
+        res.json(users)
+
+    } catch (error) {
+      console.log(error)
+ }
 })
  
-
 app.get('/find', async (req, res) => {
     const users = await User.find()
     return res.json(users)
@@ -36,8 +40,6 @@ app.post('/users', async (req, res) => {
     return res.json(newUser)
 
 })
-
-
 
 // app.post('/post', (req, res) => {
 //     const { nome, age, nickName } = req.body
