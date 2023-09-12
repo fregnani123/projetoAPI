@@ -1,7 +1,6 @@
 
 const User = require('../models/NewUser')
 
-
 module.exports = {
 
     findUsers: async (req, res) => {
