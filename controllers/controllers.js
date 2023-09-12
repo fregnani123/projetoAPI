@@ -17,6 +17,26 @@ module.exports = {
             console.log(error);
         }
     },
+
+    deleteUsers: async (req, res) => {
+        const usersName = req.params.name;
+        try { const user = await User.findOneAndDelete({name:usersName})
+            res.json(user)
+        } catch(error) {
+            console.log(error);
+        }
+    },
+    
+    createUsers: async (req, res) => {
+        const newUsers = req.body
+        try {
+            const user = await User.create(newUsers);
+            res.json(user);
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({ error: 'Erro ao criar o usuário' });
+        }
+    }
 };
 
 
