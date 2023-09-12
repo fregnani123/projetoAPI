@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express()
-const dotEnv = require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: './.env' });
 const mongoose = require('mongoose');
 const cors =  require('cors');
 const router =  require('./router/routes.js')
