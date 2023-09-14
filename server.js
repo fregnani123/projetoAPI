@@ -23,24 +23,4 @@ mongoose.connect(PASSWORD).then(() => {
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na PORT:${PORT}`)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})// app.post('/post', (req, res) => {
-//     const { nome, age, nickName } = req.body
-//     users.push[{ nome, age, nickName }]
-//     return res.json({ nome, age, nickName })
-// })
+})
